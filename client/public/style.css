@@ -157,6 +157,8 @@ li {
 }
 
 .account-container {
+  padding-bottom: 10px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -166,7 +168,7 @@ li {
 .info-account-container {
   display: flex;
   justify-content: space-between;
-  column-gap: 10px;
+  margin-bottom: 30px;
 }
 
 
@@ -249,4 +251,8 @@ li {
   border: none;
   margin:auto;
 
+}
+
+#login:hover, #register:hover{
+  color: black;
 }

@@ -13,11 +13,7 @@ const Home = ()=>{
        <li id='login'>LOGIN</li>
      </Link>
      </div>
-     <div className='home-list-container'>
-     <Link to='/MainPage'>
-       <li id='home'>HOME</li>
-     </Link>
-     </div>
+
       
    </div>
  )

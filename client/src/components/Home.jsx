@@ -5,17 +5,17 @@ const Home = ()=>{
    <div className='container-home'>
      <div className='home-list-container'>
      <Link to='/register'>
-     <li className='register'>REGISTER</li>
+     <li id='register'>REGISTER</li>
      </Link>
      </div>
      <div className='home-list-container'>
      <Link to='/LogIn'>
-       <li>LOGIN</li>
+       <li id='login'>LOGIN</li>
      </Link>
      </div>
      <div className='home-list-container'>
      <Link to='/MainPage'>
-       <li>HOME</li>
+       <li id='home'>HOME</li>
      </Link>
      </div>
       

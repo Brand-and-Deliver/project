@@ -18,9 +18,9 @@ body {
   border-radius: 3px;
   background-color:cadetblue;
   margin-bottom: 2%;
-  border: 0.2px solid;
+  border: 0.2px solid gray;
   padding: 27px;
-  box-shadow: 5px 8px;
+  box-shadow: 5px 8px gray;
 }
 
 .container-home{
@@ -44,9 +44,9 @@ li {
 .Registration {
   display: flex;
   flex-direction: column;
-  border: 0.2px solid;
+  border: 0.2px solid gray;
   padding: 27px;
-  box-shadow: 5px 8px;
+  box-shadow: 5px 8px gray;
 }
 
 .login-container {
@@ -61,9 +61,9 @@ li {
   margin-bottom: 5%;
   background-color: #5F9EA06b;
   border-radius: 3%;
-  border: 0.2px solid;
+  border: 0.2px solid gray;
   padding: 27px;
-  box-shadow: 5px 8px;
+  box-shadow: 5px 8px gray;
 }
 
 #login-button {
@@ -79,6 +79,7 @@ li {
   background-color: black;
   color: white;
 }
+
 
 .nav {
   position: sticky;
@@ -148,76 +149,7 @@ li {
   cursor: pointer;
 }
 
-#search {
-  margin: auto;
-  padding: 0.3rem;
-  text-transform: uppercase;
-  color: #fafafa;
-  background-color: rgb(24, 57, 83);
-  border: none;
-  border-radius: 3px;
-  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
-  transition: 0.3s all ease;
-  letter-spacing: 0.1rem;
-  font-size: 0.85rem;
-  position: relative;
-  top: 0;
-  right: 0;
-  padding-left: 2.5rem;
 
-  font-family: "Barrio", sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  color: darken(green, 20%);
-  transition: 0.3s all ease;
-
-  content: "_";
-
-  box-shadow: 1px 1px 20px rgba(150, 150, 150, 0.2);
-
-  right: -5px;
-  top: -0px;
-  cursor: pointer;
-}
-
-#inputSearch {
-  width: 250px;
-  margin-left: 310px;
-  margin-top: 20px;
-}
-
-#profileButton {
-  margin: auto;
-  padding: 0.9rem;
-  text-transform: uppercase;
-  color: #fafafa;
-  background-color: rgb(24, 57, 83);
-  border: none;
-  border-radius: 3px;
-  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
-  transition: 0.3s all ease;
-  letter-spacing: 0.1rem;
-  font-size: 0.85rem;
-  position: relative;
-  top: 0;
-  right: 0;
-  padding-left: 2.5rem;
-
-  font-family: "Barrio", sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  color: darken(green, 20%);
-  transition: 0.3s all ease;
-
-  content: "_";
-
-  box-shadow: 1px 1px 20px rgba(150, 150, 150, 0.2);
-
-  right: -110px;
-  top: -36px;
-  cursor: pointer;
-  border-radius: 50%;
-}
 
 #color {
   background-color: #5F9EA06b;
@@ -292,6 +224,7 @@ li {
 }
 
 .post-new-container{
+  border: solid black 0.2px;
   display: flex;
   flex-direction: column;
   padding-left: 250px;
@@ -304,4 +237,16 @@ li {
   background-color:#5F9EA06b ;  
   font-family: Arial, Helvetica, sans-serif;
   font-size: larger;
+}
+
+.search-compo {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#search {
+  border: none;
+  margin:auto;
+
 }

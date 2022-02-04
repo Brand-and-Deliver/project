@@ -9,7 +9,7 @@ axios.post('/api/searchName',{id:search})
 .catch((err)=>{console.log(err)})
 }
   return (
-    <div>
+    <div className="search-compo">
       {/* <h4> Search :</h4> */}
         <input
           id="inputSearch"

@@ -10,7 +10,7 @@ const Register = () => {
 
   const signing = () => {
     axios
-      .post("http://localhost:3000/api/register", {
+      .post("/api/register", {
         firstname: firstName,
         lastname: lastName,
         email: email,
@@ -53,8 +53,8 @@ const Register = () => {
       ></input>
       <br />
       <button id="register-btn" type="submit" onClick={()=>{
-        signing;
-        routeChange
+        signing();
+        routeChange();
          }}>
         Register
       </button>

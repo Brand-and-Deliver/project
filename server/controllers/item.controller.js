@@ -105,6 +105,7 @@ var deleteposte = (req, res) => {
   //   }
   // });
 };
+
 var searchName = (req, res) => {
   var searchName = "SELECT * FROM users WHERE firstname OR lastname =? ";
   db.query(searchName, req.body, (err, result) => {
@@ -115,6 +116,7 @@ var searchName = (req, res) => {
     }
   });
 };
+
 var searchget = (req, res) => {
   var searchget = "SELECT * FROM users WHERE firstname OR lastname =? ";
   db.query(searchget, req.body, (err, result) => {
@@ -198,6 +200,7 @@ var searchget=(req,res)=>{
     //     }
     // })
 }
+
 var updateAccunt =async (req, res)=>{ 
 var salt=await bcrypt.genSalt()
 var pass=await bcrypt.hash(req.body.password,salt)

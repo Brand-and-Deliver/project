@@ -9,12 +9,7 @@ axios.post('/api/searchName',{id:search})
 .catch((err)=>{console.log(err)})
 }
   return (
-<<<<<<< HEAD
-    <div className="search-compo">
-      {/* <h4> Search :</h4> */}
-=======
     <div>
->>>>>>> e70549139518a302218650c028ccf8ee02b53988
         <input
           id="inputSearch"
           type="text"

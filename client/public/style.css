@@ -171,31 +171,6 @@ li {
   margin-bottom: 30px;
 }
 
-
-#name {
-  font-family: "Open Sans";
-}
-
-.container2 {
-  display: flex;
-  justify-content: center;
-  margin-left: -20px;
-  background-color: lightyellow;
-}
-
-.name1 {
-  font-family: Cambria;
-}
-#name2 {
-  font-family: Calibri;
-}
-.container3 {
-  display: flex;
-  background-color: rgb(255, 255, 255);
-  justify-content: center;
-  height: 400px;
-}
-
 .Registration {
   display: flex;
   flex-direction: column;

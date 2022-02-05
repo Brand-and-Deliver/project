@@ -20,8 +20,10 @@ const MainPage=(props)=> {
 return (
     <div>
         <Nav />
-        <h1>postes</h1>
-        {posts.map((element, i)=>{return <Postes data={element} key={i} userid={props.userId} /> })}   
+        <h1>POSTS :</h1>
+        {posts.map((element, i)=>{
+          return <Postes className="post-window" data={element} key={i} userid={props.userId} /> 
+          })}   
     </div>
 );  
 }

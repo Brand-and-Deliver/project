@@ -1,10 +1,14 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import Likes from "./Likes.jsx";
 const Account = (props) =>{ 
   const [infopost,setinfopost]=useState([])
   const [infolikes,setinfolikes]=useState([])
+  const likesarr=[]
+
   useEffect(() =>{
+
     axios.post("/api/get/post/id",{id:props.data.id})
     .then((res)=>{setinfopost(res.data)})
     .catch((err)=>{console.log(err)})
@@ -12,10 +16,10 @@ const Account = (props) =>{
     axios.get("/api/getlikes")
     .then((res)=>{setinfolikes(res.data)})
     .catch((err)=>{console.log(err)})
-   },[])
+  },[])
    
   const deletepost=(id)=>{
-    console.log(id);
+    
     axios.delete("/api/delete/poste/commit",{data:{id:id}})
     .then((res)=>{console.log(res)})
     .catch((err)=>{console.log(err)})
@@ -28,9 +32,10 @@ const Account = (props) =>{
    .then((res)=>{setinfopost(res.data)})
    .catch((err)=>{console.log(err)})
   } 
-const func=(id)=>{
-console.log(id)
-}
+
+  const func=(likes)=>{
+    likesarr.push(likes)
+  }
 
   return(
   <div id="color">
@@ -47,7 +52,7 @@ console.log(id)
     </div>
     <div className="info-account-container">
       <h3 className="name1">{infopost.length} posts</h3>
-      <h3 className="name1">likes</h3>
+      {/* <h3 className="name1">{console.log(likesarr.length)}likes</h3> */}
     </div>
     {
       infopost.map((elem,key)=>{
@@ -58,7 +63,7 @@ console.log(id)
              <p>{elem.title}</p>
              <img src={elem.image} width="100" height="100" />
            </div>
-           {/* {infolikes.filter((a)=>{a.post_id === elem.id ? likes.push(a) : null })} {likes.length} */}
+           {infolikes.map((element,i)=>{return <Likes data={element} key={i} id={elem.id} func={func}/> })}
          </div>
         )
       })

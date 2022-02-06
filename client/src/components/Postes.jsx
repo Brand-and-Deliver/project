@@ -7,6 +7,16 @@ const Postes=(props)=> {
     const [commentId, setCommentId] = useState(undefined);
     // const [share, setShare] = useState();
     const [status, setStatus] = useState(false);
+    const [comitofposts,setcomitofposts]=useState([]); 
+
+    useEffect(()=>{
+        axios.post('/api/get/commit', {id:props.data.id})
+        .then((result)=>{
+            console.log(result)
+            setcomitofposts(result.data)
+        })
+        .catch((error)=>{console.log(error)})
+    },[])
 
     const handleComment = () =>{
       axios.post("/api/commits", {
@@ -15,6 +25,12 @@ const Postes=(props)=> {
         postid:commentId
       })
       console.log(comment,"user",props.userid,"comid",commentId);
+      axios.post('/api/get/commit', {id:props.data.id})
+      .then((result)=>{
+          console.log(result)
+          setcomitofposts(result.data)
+      })
+      .catch((error)=>{console.log(error)})
     }
     
     const handleShare = (title,url,id) =>{
@@ -56,7 +72,8 @@ const Postes=(props)=> {
             </div>
             :null
           }
-          <Commints id={props.data.id}  />
+          {/*try to map from here  */}
+          {comitofposts.map((element, i)=>{return  (<Commints data={element} key={i}  />)})}
         </div>
       </div>
   );  

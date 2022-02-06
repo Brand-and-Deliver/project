@@ -1,21 +1,9 @@
-import React,{useState,useEffect} from 'react';
-import axios from "axios";
+import React from 'react';
+// import axios from "axios";,{useState,useEffect}
 const commints=(props)=> {
-    const [comitofposts,setcomitofposts]=useState([]); 
-    useEffect(()=>{
-        console.log('yoyoy',props.id)
-        axios.post('/api/get/commit', {id:props.id})
-        .then((result)=>{
-            console.log(result)
-            setcomitofposts(result.data)
-        })
-        .catch((error)=>{console.log(error)})
-    },[])
-    
   return (
-  <div>
-      
-    {comitofposts.map((element, i)=>{return  (<p>{element.des}</p>) })}  
+  <div>  
+    <p>{props.data.des}</p>   
   </div>
   );
 }

@@ -14,6 +14,7 @@ const Account = (props) =>{
     .then((res)=>{setinfolikes(res.data)})
     .catch((err)=>{console.log(err)})
    },[])
+   
   const deletepost=(id)=>{
     console.log(id);
     axios.delete("/api/delete/poste/commit",{data:{id:id}})

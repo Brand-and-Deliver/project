@@ -14,7 +14,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       userinfo:{},
-      redirect:'/',
+      redirct:'/',
       search : []
     }
   }
@@ -33,7 +33,7 @@ class App extends React.Component {
       })
       .then((result)=>{
         console.log(result);
-        this.setState({userinfo:result.data.userinfo,redirect:result.data.redirect})
+        this.setState({userinfo:result.data.userinfo,redirct:result.data.redirct})
       }); 
   };
   logout(){
@@ -47,7 +47,7 @@ class App extends React.Component {
         <Route path="/" element={<Home/>}/> 
         <Route path="/register" element={<Register/>}/> 
         <Route path="/PostNew" element={<PostNew data={this.state.userinfo.id}/>}/> 
-        <Route path="/LogIn" element={<LogIn connect={this.connect.bind(this)} />}/> 
+        <Route path="/LogIn" element={<LogIn connect={this.connect.bind(this)} redirct={this.state.redirct} /> }/> 
         <Route path="/MainPage" element={<MainPage userId={this.state.userinfo.id} logout={this.logout.bind(this)} />}/>
         <Route path="/account" element={<Account data={this.state.userinfo}/>}/>
         <Route path="/Editprofile" element={<Editprofile data={this.state.userinfo.id}/>}/>

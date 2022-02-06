@@ -4,7 +4,9 @@ import Postes from "./Postes.jsx";
 import axios from "axios";
 import 'regenerator-runtime/runtime';
 const MainPage=(props)=> {
+
   const [posts,setPosts] = useState([]);
+  
   useEffect(()=>{
     axios.get("/api/get/post")
     .then(async(res)=>{
@@ -13,7 +15,8 @@ const MainPage=(props)=> {
       console.log(awai, "hello")
     })
      .catch((err)=>
-     console.log(err))
+      console.log(err)
+     )
   },[])
 
 return (

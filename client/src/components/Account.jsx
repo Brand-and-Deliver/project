@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const Account = (props) =>{ 
   const [infopost,setinfopost]=useState([])
   const [infolikes,setinfolikes]=useState([])
-  let likes=[];
   useEffect(() =>{
     axios.post("/api/get/post/id",{id:props.data.id})
     .then((res)=>{setinfopost(res.data)})
@@ -29,11 +28,12 @@ const Account = (props) =>{
    .then((res)=>{setinfopost(res.data)})
    .catch((err)=>{console.log(err)})
   } 
-
+const func=(id)=>{
+console.log(id)
+}
 
   return(
   <div id="color">
-    {console.log(likes)}
     <div className="account-container">
       <h1 id="name">
       {props.data.firstname} {props.data.lastname}
@@ -47,7 +47,7 @@ const Account = (props) =>{
     </div>
     <div className="info-account-container">
       <h3 className="name1">{infopost.length} posts</h3>
-      <h3 className="name1">{likes.length}likes</h3>
+      <h3 className="name1">likes</h3>
     </div>
     {
       infopost.map((elem,key)=>{
@@ -58,7 +58,7 @@ const Account = (props) =>{
              <p>{elem.title}</p>
              <img src={elem.image} width="100" height="100" />
            </div>
-           {infolikes.filter((a)=>{a.post_id === elem.id ? likes.push(a) : null })}
+           {/* {infolikes.filter((a)=>{a.post_id === elem.id ? likes.push(a) : null })} {likes.length} */}
          </div>
         )
       })

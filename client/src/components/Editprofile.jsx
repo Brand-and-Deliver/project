@@ -9,7 +9,7 @@ console.log(props.data );
     const [phoneNum, setPhoneNum] = useState("");
     const [password, setPassword] = useState("");
 
-   function Edit () {
+   const Edit =()=> {
         axios.put('/api/updateAccunt', {
             firstname:firstName,
             lastname:lastName,
@@ -20,9 +20,12 @@ console.log(props.data );
         })
         .then((result)=>{
             console.log(result);
-        }).catch((err)=>{console.log(err)})
+        })
+        .catch((err)=>{console.log(err)})
     };
+
     const navigate = useNavigate()
+
     return (
         <div className='Registration'>
             <h3>Create a New Account :</h3>
@@ -36,11 +39,8 @@ console.log(props.data );
             <input type="number" onChange={(e)=>setPhoneNum(e.target.value)}></input>
             <label>Password</label>
             <input type="password" onChange={(e)=>setPassword(e.target.value)}></input>
-            <button type='submit' onClick={()=>{
-                Edit();
-                navigate("/account")}}
-                > done </button>
-           
+            <button type='submit' onClick={()=>{Edit();navigate("/account")}}> done </button>
+            <button type='submit' onClick={()=>{navigate("/account")}}> cancel </button>
         </div>
     );
 }

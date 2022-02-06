@@ -18,23 +18,16 @@ class App extends React.Component {
       search : []
     }
   }
-  componentDidMount() {
-    axios.get('/api/searchName')
-    .then((results) => {
-        console.log(results)
-        this.setState({ search: results.data})
-    })
-    .catch((err) => { console.log(err) });
-}
-  connect (emailLog,passwordLog)  {
-      axios.post('http://localhost:3000/api/login', {
-        email:emailLog,
-        password:passwordLog
-      })
-      .then((result)=>{
-        console.log(result);
-        this.setState({userinfo:result.data.userinfo,redirct:result.data.redirct})
-      }); 
+//   componentDidMount() {
+//     axios.get('/api/searchName')
+//     .then((results) => {
+//         console.log(results)
+//         this.setState({ search: results.data})
+//     })
+//     .catch((err) => { console.log(err) });
+// }
+  login(emailLog,passwordLog)  {
+      this.setState({userinfo:emailLog,redirct:passwordLog})
   };
   logout(){
     console.log("cliked");
@@ -47,7 +40,7 @@ class App extends React.Component {
         <Route path="/" element={<Home/>}/> 
         <Route path="/register" element={<Register/>}/> 
         <Route path="/PostNew" element={<PostNew data={this.state.userinfo.id}/>}/> 
-        <Route path="/LogIn" element={<LogIn connect={this.connect.bind(this)} redirct={this.state.redirct} /> }/> 
+        <Route path="/LogIn" element={<LogIn login={this.login.bind(this)} redirct={this.state.redirct} /> }/> 
         <Route path="/MainPage" element={<MainPage userId={this.state.userinfo.id} logout={this.logout.bind(this)} />}/>
         <Route path="/account" element={<Account data={this.state.userinfo}/>}/>
         <Route path="/Editprofile" element={<Editprofile data={this.state.userinfo.id}/>}/>

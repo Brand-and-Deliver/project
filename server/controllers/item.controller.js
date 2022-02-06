@@ -32,7 +32,6 @@ var login = (req, res) => {
         .then((result) => {
           if (result === true) {
             res.json({ redirct: "/MainPage", userinfo: elem });
-            
           }
         })
         .catch((err) => {

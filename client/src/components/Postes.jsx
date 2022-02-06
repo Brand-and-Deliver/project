@@ -2,10 +2,9 @@ import React,{useState,useEffect} from "react";
 import Commints from "./Commints.jsx";
 import axios from "axios";
 const Postes=(props)=> {
-    const [like, setLike] = useState(0); 
+
     const [comment, setComment] = useState(''); 
     const [commentId, setCommentId] = useState(undefined);
-    // const [share, setShare] = useState();
     const [status, setStatus] = useState(false);
     const [comitofposts,setcomitofposts]=useState([]); 
 
@@ -24,7 +23,6 @@ const Postes=(props)=> {
         userid:props.userid,
         postid:commentId
       })
-      console.log(comment,"user",props.userid,"comid",commentId);
       axios.post('/api/get/commit', {id:props.data.id})
       .then((result)=>{
           console.log(result)
@@ -44,19 +42,20 @@ const Postes=(props)=> {
     })
     .catch((error)=>{console.log(error)})
   }
+
   const handleLike = (id,postid) =>{
     axios.post('/api/likes', {
       postid:postid,
       userid:id
-  })
-  .then((result)=>{
+    })
+    .then((result)=>{
       console.log(result)
-  })
-  .catch((error)=>{console.log(error)})
-}
+    })
+    .catch((error)=>{console.log(error)})
+  }
 
   return (
-      <div>
+      <div >
         <div className="post-container" id={props.data.id}>
           <p>{props.data.title}</p>
           <img src={props.data.image} className="image" width="100" height="100"/>
@@ -72,11 +71,10 @@ const Postes=(props)=> {
             </div>
             :null
           }
-          {/*try to map from here  */}
           {comitofposts.map((element, i)=>{return  (<Commints data={element} key={i}  />)})}
         </div>
       </div>
   );  
-  }
+}
     
-    export default Postes;
+export default Postes;

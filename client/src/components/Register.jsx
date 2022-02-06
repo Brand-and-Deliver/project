@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const Register = () => {
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNum, setPhoneNum] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const signing = () => {
     axios
@@ -25,7 +27,6 @@ const Register = () => {
       });
   };
 
-  let navigate = useNavigate();
   const routeChange = () => {
     let path = "/LogIn";
     navigate(path);
@@ -42,22 +43,12 @@ const Register = () => {
       <label>Email</label>
       <input type="email" onChange={(e) => setEmail(e.target.value)}></input>
       <label>Phone Number</label>
-      <input
-        type="number"
-        onChange={(e) => setPhoneNum(e.target.value)}
-      ></input>
+      <input type="number" onChange={(e) => setPhoneNum(e.target.value)}></input>
       <label>Password</label>
-      <input
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
+      <input type="password" onChange={(e) => setPassword(e.target.value)}
       ></input>
       <br />
-      <button id="register-btn" type="submit" onClick={()=>{
-        signing();
-        routeChange()
-         }}>
-        Register
-      </button>
+      <button id="register-btn" type="submit" onClick={()=>{signing();routeChange()}}>Register</button>
     </div>
   );
 };

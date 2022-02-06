@@ -17,10 +17,7 @@ axios.post('/api/searchName',{id:search})
           placeholder="top trending"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button id="search" type="submit" onClick={Search}>
-          Search
-        </button>
-      
+        <button id="search" type="submit" onClick={Search}>Search</button>
     </div>
   );
 }

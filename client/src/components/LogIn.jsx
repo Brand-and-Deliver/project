@@ -1,23 +1,28 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const Login = (props) => {
     const [emailLog, setEmailLog] = useState("");
     const [passwordLog, setPasswordLog] = useState("");
- 
     const navigate = useNavigate()
-   console.log(props.redirct,"bef")
-    const routeChange = () => { 
-        let path = "/MainPage";
-        console.log(props.redirct,"afe")
-        if(props.redirct === "/MainPage"){
-            navigate(path);
-            console.log("yep it works")
-        }else{
-            path="/"
-            navigate(path);
-        }
-      };
+     const routeChange=()=>{
+        axios.post('http://localhost:3000/api/login', {
+            email:emailLog,
+            password:passwordLog
+          })
+          .then((result)=>{
+            let path = "/MainPage";
+            props.login(result.data.userinfo,result.data.redirct);
+            if(result.data.redirct==="/MainPage"){
+                navigate(path)
+            }else{
+                path="/"
+                navigate(path);
+            }
+          })
+          .catch((error)=>{console.log(error)})
+     }
+    
     return (
         <div className='login-container'>
         <h3>Connect to your account :</h3>
@@ -26,11 +31,7 @@ const Login = (props) => {
             <br/>
             <input type="password" placeholder='Your Password...' onChange={(e)=>setPasswordLog(e.target.value)}></input>
             <br/>
-            <button id='login-button' type='submit'onClick={()=>{
-                props.connect(emailLog,passwordLog);
-                setTimeout(()=>{routeChange()},5000)
-                }} > Login </button>
-            {/* <Link to='/MainPage' >Login</Link> */}
+            <button id='login-button' type='submit'onClick={()=>{routeChange()}} > Login </button>
         </div>
     );
 }

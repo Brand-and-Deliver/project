@@ -13,8 +13,6 @@ const Home = ()=>{
        <li id='login'>LOGIN</li>
      </Link>
      </div>
-
-      
    </div>
  )
 }

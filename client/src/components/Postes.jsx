@@ -55,7 +55,7 @@ const Postes=(props)=> {
   }
 
   return (
-      <div >
+      <div id="scroll">
         <div className="post-container" id={props.data.id}>
           <p>{props.data.title}</p>
           <img src={props.data.image} className="image" width="100" height="100"/>

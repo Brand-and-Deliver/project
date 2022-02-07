@@ -194,7 +194,9 @@ li {
   background-color: #5F9EA06b;
   align-items: center;
 }
-
+*{
+  overflow:auto
+}
 .account-container {
   padding-bottom: 10px;
   padding-top: 10px;

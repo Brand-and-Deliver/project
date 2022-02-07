@@ -22,7 +22,6 @@ const MainPage=(props)=> {
 return (
     <div>
         <Nav logout={props.logout}/>
-        <h1>postes</h1>
         {posts.map((element, i)=>{return <Postes data={element} key={i} userid={props.userId}  /> })} 
     </div>
 );  

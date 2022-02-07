@@ -9,7 +9,7 @@ axios.post('/api/searchName',{id:search})
 .catch((err)=>{console.log(err)})
 }
   return (
-    <div>
+    <div className="search-field">
         <input
           id="inputSearch"
           type="text"

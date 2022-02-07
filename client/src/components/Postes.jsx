@@ -59,9 +59,9 @@ const Postes=(props)=> {
         <div className="post-container" id={props.data.id}>
           <p>{props.data.title}</p>
           <img src={props.data.image} className="image" width="100" height="100"/>
-          <button className="like-btn" onClick={()=>{handleLike(props.userid,props.data.id)}}>Like</button>
-          <button className="comment-btn"  onClick={()=>{setStatus(true);setCommentId(props.data.id)} }>Comment</button>
-          <button className="share-btn" onClick={()=>{handleShare(props.data.title,props.data.image,props.userid)} }>Share</button>
+          <button className="like-btn far fa-heart" onClick={()=>{handleLike(props.userid,props.data.id)}}>Like</button>
+          <button className="comment-btn far fa-comments"  onClick={()=>{setStatus(true);setCommentId(props.data.id)} }>Comment</button>
+          <button className="share-btn fa-share-square" onClick={()=>{handleShare(props.data.title,props.data.image,props.userid)} }>Share</button>
           {status?
             <div>
              <textarea name="comments" 

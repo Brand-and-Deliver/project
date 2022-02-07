@@ -51,13 +51,13 @@ const Account = (props) =>{
       </Link> 
     </div>
     <div className="info-account-container">
-      <h3 className="name1">{infopost.length} posts</h3>
+      <h3 className="name1">{infopost.length} Posts</h3>
       {/* <h3 className="name1">{console.log(likesarr.length)}likes</h3> */}
     </div>
     {
       infopost.map((elem,key)=>{
         return ( 
-          <div id={elem.id}>
+          <div className="post-container" id={elem.id}>
             <button onClick={()=>{deletepost(elem.id)}}>x</button>
            <div  >
              <p>{elem.title}</p>
